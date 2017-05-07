@@ -1,0 +1,17 @@
+<header class="row">
+
+    <div class="column">
+        <a routerLink="/" tabindex="0" class="logo">
+            <i class="logo-icon"></i>
+            <h1 class="header-title show-for-medium"><span>App Template</span></h1>
+        </a>
+        <h1 class="header-title-small show-for-small-only">{{mobileTitle}}</h1>
+    </div>
+    <div class="column shrink show-for-small-only">
+        <button class="app-icon-button menu-toggle" (click)="toggleSideNav()">
+            <i [@menuButtonState]="menuIconState" class="material-icons app-toolbar-menu">menu</i>
+            <i [@menuButtonState]="closeIconState" class="material-icons app-toolbar-menu">close</i>
+        </button>
+    </div>
+
+</header>

@@ -1,0 +1,35 @@
+table.md2-calendar-dates {
+  tr, thead {
+    background-color: transparent;
+  }
+}
+
+.md2-datepicker-content {
+  padding-top: 300px !important;
+}
+
+md2-datepicker {
+  width: 100%;
+  min-width: 100%;
+  margin-bottom: 1.5rem;
+  margin-top: -11px;
+}
+
+.md2-datepicker-input {
+  border-bottom-width: 2px !important;
+}
+
+.md2-datepicker-placeholder {
+  [aria-required=true] &::after {
+    content: '(Required)' !important;
+    position: relative;
+    display: inline-block;
+    font-size: 80%;
+    margin-left: 8px;
+    visibility: visible;
+  }
+
+  &.md2-floating-placeholder {
+    transform: translate3d(0,11px,0) scale(.75) !important;
+  }
+}

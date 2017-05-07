@@ -1,0 +1,276 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'scss/settings';
+@import '../node_modules/foundation-sites/scss/foundation';
+@import 'scss/material-theme';
+
+// @include foundation-grid;
+$global-flexbox: true;
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-dropdown-menu;
+@include foundation-table;
+
+@import 'scss/md2-datepicker';
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.primary-outlet > * {
+  display: block;
+}
+
+body {
+  min-height: 100vh;
+  background-color: mat-color($background-palette, background);
+}
+
+app > div.content {
+  overflow-x: hidden !important;
+}
+
+main {
+  position: relative;
+}
+
+.mat-sidenav-content {
+  margin-top: 75px;
+  overflow: initial;
+  padding-bottom: 1.5rem;
+  //min-height: 100vh;
+
+  @include breakpoint(medium up) {
+    margin-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.app-sidenav.mat-sidenav {
+  padding: 0;
+  min-width: 200px;
+  top: 60px;
+}
+
+.mat-sidenav-container {
+  color: $body-font-color;
+  min-height: calc(100vh - 51px);
+
+  @include breakpoint(medium up) {
+    min-height: calc(100vh - 146px);
+  }
+}
+
+hr.divider {
+  margin-top: 0;
+}
+
+md-input-container {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  color: mat-color($foreground-palette, text);
+
+  md-placeholder i.material-icons {
+    font-size: 100%;
+  }
+
+  @mixin md-prefix-suffix-props {
+    padding: 5px;
+    background-color: #eaeaea;
+    border-radius: 2px;
+    font-weight: bold;
+    color: mat-color($foreground-palette, hint-text)
+  }
+
+  .mat-input-prefix {
+    text-align: left;
+
+    span[md-prefix] {
+
+      > span {
+        @include md-prefix-suffix-props()
+      }
+    }
+  }
+
+  .mat-input-prefix + .mat-input-infix {
+    left: 6px;
+  }
+
+  .mat-input-suffix {
+    text-align: right;
+
+    span[md-suffix] {
+
+      > span {
+        @include md-prefix-suffix-props()
+      }
+    }
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@mixin md-underline {
+  height: 2px;
+  border-top-width: 2px;
+}
+
+md-input-container {
+  .mat-input-underline {
+    @include md-underline();
+  }
+}
+
+md-select {
+  margin-bottom: 2.5rem;
+  width: 100%;
+  margin-top: 0.4rem;
+
+  .mat-select-placeholder.mat-floating-placeholder {
+    top: -13px;
+  }
+
+  .mat-select-trigger {
+    border-bottom-width: 2px;
+  }
+
+  .mat-select-placeholder {
+    font-size: 85%;
+  }
+
+  .mat-select-value {
+    font-size: 14px;
+    top: 4px;
+  }
+
+  .mat-select-underline {
+    @include md-underline();
+  }
+}
+
+md-input-container .mat-input-underline.mat-disabled {
+  background-size: 5px 2px;
+}
+
+
+md-input-container.ng-invalid.ng-dirty .mat-input-underline, md-select.ng-invalid.ng-dirty .mat-select-underline {
+  border-color: mat-color($alert-palette, lighter);
+  background-color: mat-color($alert-palette, lighter);
+}
+
+[aria-required=true] .mat-select-placeholder {
+  &::after {
+    content: '(Required)' !important;
+    position: relative;
+    //color: purple;
+    display: inline-block;
+    font-size: 80%;
+    margin-left: 5px;
+    visibility: visible;
+  }
+}
+
+label.mat-input-placeholder {
+
+  span.mat-placeholder-required {
+    visibility: hidden;
+
+    &:before {
+      content: '(Required)';
+      position: relative;
+      //color: purple;
+      display: inline-block;
+      font-size: 80%;
+      margin-left: 5px;
+      visibility: visible;
+    }
+  }
+}
+
+.mat-tab-header {
+  margin-bottom: 2rem;
+}
+
+.mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
+}
+
+.mat-tab-label {
+  opacity: .9 !important;
+
+  &.mat-tab-label-active {
+    opacity: .9 !important;
+  }
+
+  &.mat-tab-disabled {
+    opacity: .4 !important;
+  }
+}
+
+.mat-card {
+  margin-bottom: 2rem;
+  margin-right: 2px; //make room for drop shadow
+  margin-left: 2px; //make room for drop shadow
+  color: $body-font-color !important; // mat-color($foreground-palette, text)
+}
+
+md-checkbox {
+  & > .mat-checkbox-layout {
+    margin-bottom: 2.3rem;
+    margin-top: 0.8rem;
+  }
+}
+
+form {
+  padding-top: 1px;
+}
+
+md-card.comment-list {
+  background-color: #ededed !important;
+
+  &.empty {
+    background-color: white !important;
+  }
+}
+
+.mat-dialog-container {
+  max-height: 95vh;
+  min-width: 25rem;
+  max-width: 75rem !important;
+
+  @include breakpoint (medium up) {
+    min-width: 40rem;
+  }
+
+  @include breakpoint (large up) {
+    min-width: 50rem;
+  }
+}
+
+div [md-dialog-title] {
+  position: relative;
+
+  button[md-dialog-close] {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+button[md-raised-button] {
+  md-icon {
+    height: 20px;
+    width: 20px;
+    font-size: 18px;
+  }
+}

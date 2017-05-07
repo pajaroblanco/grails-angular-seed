@@ -1,0 +1,13 @@
+<h2>Home</h2>
+
+Departments:
+<ul>
+    <li *ngFor="let dept of departments">
+        {{dept.name}}
+        <ul *ngIf="dept.employees.length > 0">
+            <li *ngFor="let emp of dept.employees">
+                {{emp.firstName}} {{emp.lastName}}
+            </li>
+        </ul>
+    </li>
+</ul>

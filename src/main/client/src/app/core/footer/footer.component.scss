@@ -1,0 +1,50 @@
+@import "../../../scss/settings";
+
+$footer-height: 50px !default;
+$footer-bg: lighten(mat-color($primary-palette), 5.3) !default;
+$chrome-offset: 10px;
+
+.brand-info, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: rem-calc($footer-height);
+
+  //@media #{$medium-up} {
+  //max-width: $row-width;
+  //}
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.brand-info {
+  background: $footer-bg;
+  .logo {
+    //background: url("/app/images/logo.svg") no-repeat;
+    -webkit-background-size: 7.938rem 1.563rem;
+    background-size: 7.938rem 1.563rem;
+    color: #444;
+    display: block;
+    width: rem-calc(160);
+    margin: 0;
+    position: relative;
+    height: rem-calc($footer-height);
+    line-height: rem-calc($footer-height);
+    background-position: $chrome-offset center;
+    transition: background-color ease-in-out .2s;
+    margin-left: -$chrome-offset;
+    padding-left: $chrome-offset;
+    &:hover, &:focus, &:active {
+      background-color: darken($footer-bg, 5%);
+    }
+  }
+  .copyright {
+    color: #fff;
+    text-align: right;
+    display: block;
+    font-size: .75rem;
+    text-transform: uppercase;
+    height: rem-calc($footer-height);
+    line-height: rem-calc($footer-height + 3);
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,202 @@
+@import '~@angular/material/theming';
+@import "../../../scss/material-theme";
+@import "../../../scss/settings";
+
+$masthead-bg: mat-color($primary-palette);
+$top-bar-height-small: 60px;
+$top-bar-height: 94px;
+$chrome-offset: map-get($grid-column-gutter, medium) / 2;
+
+header {
+  height: rem-calc($top-bar-height-small);
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: $masthead-bg;
+  position: fixed;
+  @include breakpoint(medium up) {
+    height: rem-calc($top-bar-height);
+    position: relative;
+    z-index: 1;
+  }
+  @media #{"screen"} {
+    &:before {
+      content: "";
+      width: 9999px;
+      background-color: inherit;
+      position: absolute;
+      height: rem-calc($top-bar-height + 1);
+      z-index: -1;
+      top: 0;
+      right: 0;
+
+      @include breakpoint(small only) {
+        display: none;
+      }
+    }
+
+    &:after {
+      content: "";
+      width: 9999px;
+      background-color: $masthead-bg;
+      position: absolute;
+      height: rem-calc($top-bar-height + 1);
+      z-index: -1;
+      top: 0;
+      left: 100%;
+      margin-left: -2px;
+
+      @include breakpoint(small only) {
+        display: none;
+      }
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    position: absolute;
+    width: auto;
+    height: rem-calc($top-bar-height-small);
+    z-index: 0;
+    padding-left: 0;
+    padding-right: 4px;
+    border-right: 1px solid rgba(0, 0, 0, 0.21);
+    transition: background-color ease-in-out .2s;
+    @include breakpoint(medium up) {
+      height: 5.875rem;
+      background: transparent;
+      margin-left: -$chrome-offset;
+      padding-left: $chrome-offset;
+      left: $chrome-offset;
+      border: none;
+      max-width: calc(100% - 295px);
+    }
+    &:hover, &:focus, &:active {
+      background-color: darken($masthead-bg, 5%);
+    }
+  }
+
+  i.logo-icon {
+    //background: url("/app/images/logo.svg") no-repeat;
+    height: rem-calc($top-bar-height-small);
+    line-height: rem-calc($top-bar-height-small);
+    background-position: rem-calc(6 18);
+    background-size: rem-calc(48);
+
+    display: inline-block;
+    width: rem-calc(60);
+    position: relative;
+
+    @include breakpoint(medium up) {
+      height: rem-calc($top-bar-height);
+      line-height: rem-calc($top-bar-height);
+      background-position: rem-calc(0 26);
+      background-size: rem-calc(75 40);
+      position: absolute;
+      width: rem-calc(75);
+    }
+  }
+
+  .header-title-small {
+    font-family: "Trade Gothic W01";
+    z-index: -1;
+    background: none;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 58px);
+    letter-spacing: -0.1rem;
+    font-size: 1.3rem;
+
+    color: white;
+    display: inline-block;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    height: 3.75rem;
+    line-height: 3.75rem;
+    text-align: left;
+    text-rendering: geometricPrecision;
+    left: 4.625rem;
+    position: relative;
+  }
+
+  .header-title {
+    color: white;
+    position: relative;
+    height: 5.875rem;
+    line-height: 5.875rem;
+    font-size: 155%;
+    padding: 0 2.8125rem 0 4.1875rem;
+    left: 1.5625rem;
+    font-family: "Trade Gothic W01";
+    text-transform: uppercase;
+
+    span {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+      display: inline-block;
+      overflow: hidden;
+
+      &:before {
+        content: "";
+        height: 3.5rem;
+        display: inline-block;
+        top: 1.125rem;
+        position: relative;
+        border-left: 0.125rem solid lighten($masthead-bg, 15);
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .menu-toggle {
+    position: relative;
+    top: 6px;
+    outline: none;
+
+    > i {
+      font-size: 46px;
+      color: rgba(255, 255, 255, 0.75);
+
+      &:first-of-type {
+        position:absolute;
+      }
+    }
+  }
+
+  h1.logo-text {
+    color: white;
+    font-size: rem-calc(25px);
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    height: rem-calc($top-bar-height-small);
+    line-height: rem-calc($top-bar-height-small);
+    text-align: left;
+    text-rendering: geometricPrecision;
+    left: rem-calc(74);
+    position:relative;
+    @include breakpoint(medium up) {
+      height: rem-calc($top-bar-height);
+      line-height: rem-calc($top-bar-height);
+      font-size: rem-calc(25px);
+      padding: rem-calc(0 0 0 67);
+      left:rem-calc(25px);
+
+      & > span::before {
+        content: "";
+        height: rem-calc(56px);
+        display: inline-block;
+        top: rem-calc(18px);
+        position: relative;
+        border-left: rem-calc(2px) solid lighten($masthead-bg, 15);
+        margin-right: rem-calc(16px);
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="content" [attr.data-environment]="envName">
+    <app-header [sidenav]="sidenav"></app-header>
+
+    <md-sidenav-container>
+
+        <md-sidenav #sidenav mode="over" align="end" class="app-sidenav">
+            <!--<app-header-menu></app-header-menu>-->
+        </md-sidenav>
+
+        <main>
+            <div class="row">
+                <div class="small-12 columns primary-outlet">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </main>
+
+    </md-sidenav-container>
+
+    <app-footer></app-footer>
+</div>

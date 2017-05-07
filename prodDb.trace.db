@@ -1,0 +1,6 @@
+2016-12-20 10:13:46 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "MY_TABLE" not found; SQL statement:
+insert into my_table (id, version, value) values (null, ?, ?) [42102-192]
+2016-12-20 10:13:46 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "MY_TABLE" not found; SQL statement:
+insert into my_table (id, version, value) values (null, ?, ?) [42102-192]
